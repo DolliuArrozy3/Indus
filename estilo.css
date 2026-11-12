@@ -1,0 +1,268 @@
+body {
+  margin: 0;
+  font-family: inter, Gudea, Molengo, BlinkMacSystemFont, Roboto, sans-serif;
+  background-color: #FAFAFA; 
+  overflow-x: hidden;
+}
+.barra-superior {
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+  background-color: #FFFFFF;
+  padding: 16px 40px;
+  border-bottom: 1px solid #EAEAEA; 
+}
+
+.nav-izquierda {
+  display: flex;
+  align-items: center;
+  gap: 35px; 
+}
+.logo {
+  font-size: 20px;
+  font-weight: 800;
+  color: #111111;
+  text-decoration: none;
+  letter-spacing: -0.5px;
+  font-family: inter, Gudea, Molengo, BlinkMacSystemFont, Roboto, sans-serif;
+}
+
+.enlaces {
+  display: flex;
+  align-items: center;
+  gap: 24px; 
+}
+.btn-nav {
+  text-decoration: none;
+  font-size: 14px;
+  color: #888888; 
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+.btn-nav-ar {
+  text-decoration: none;
+  font-size: 14px;
+  color: #888888; 
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.btn-nav:hover {
+  color: #111111;
+}
+
+.btn-nav.activo {
+  color: #111111;
+  font-weight: 600;
+  position: relative;    
+  padding-bottom: 6px;   
+  display: inline-block;
+}
+
+.btn-nav.activo::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;           
+  height: 3px;          
+  background-color: #111111;
+  border-radius: 2px;
+}
+.btn-buscar {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #555555;
+  display: flex;
+  align-items: center;
+  padding: 6px;
+  border-radius: 50%;
+  transition: background-color 0.2s;
+}
+
+.btn-buscar:hover {
+  background-color: #F0F0F0;
+  color: #111111;
+}
+.logo-indus {
+  width: 500px;
+  height: auto;
+  display: block;
+  margin-left: 230px;
+  margin-top: 120px;
+  opacity: 0;
+  animation: slideInLeft 0.5s ease-out forwards;
+}
+@keyframes slideInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }}
+
+.contenedor-inicial {
+  display: flex;
+  padding: 50px 40px; 
+  box-sizing: border-box;
+}
+
+.tarjeta-informativa {
+  width: 360px;                   
+  background-color: #FFFFFF;      
+  border-radius: 24px;            
+  padding: 32px;                  
+  border: 1px solid #CCCCCC;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06); 
+  display: flex;
+  flex-direction: column;         
+  gap: 24px;                      
+  margin-left: 900px;              
+  margin-top: -250px; 
+  position: relative; 
+  overflow: hidden; /*para que no se vea lo que slaga de atars*/ 
+  animation: aparecerCentro 0.1s ease-out forwards;     
+}
+@keyframes aparecerCentro {
+  0% {
+    opacity: 0;
+    transform: scale(0); 
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1); 
+  }
+  }
+
+.contenedor-iz-inicio {
+  width: 80px;
+  height: 80px;
+  background-color: #E6E6E6;      
+  border-radius: 12px;             
+}
+
+.titulo-contenedor {
+  font-size: 20px;
+  font-weight: 700;
+  color: #111111;                 
+  line-height: 1.4;               
+  margin: 0;  
+  font-family: inter, Gudea, Molengo, BlinkMacSystemFont, Roboto, sans-serif;                    
+}
+
+.descripcion-contenedor {
+  font-size: 14px;
+  color: #888888;
+  margin: 0;   
+  font-family: inter, Gudea, Molengo, BlinkMacSystemFont, Roboto, sans-serif; 
+}
+
+.tarjeta-informativa {    
+  z-index: 10;            
+}
+
+.icon-papel, .icon-word, .icon-pdf {
+  position: absolute;
+  right: 550px;           
+  background-color: #ffffff;
+  border-radius: 8px;
+  z-index: -1;            
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  animation: aparecerDesdeAtras 0.6s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  opacity: 0;
+}
+.icon-papel img, .icon-word img, .icon-pdf img {
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+  margin-left: 470px;
+}
+
+.icon-papel { 
+  left: 1165px;
+  top: 90px;             
+  animation-delay: 0.1s; 
+}
+
+.icon-pdf { 
+  left: 510px;             
+  top: 220px;            
+  animation-delay: 0.1s; 
+}
+
+.icon-word { 
+  left: 800px;
+  top: 370px;             
+  animation-delay: 0.1s; 
+}
+.icon-papel-a, .icon-pdf-a, .icon-word-a { /*copias a*/
+  position: absolute;
+  background-color: #ffffff;
+  border-radius: 8px;
+  z-index: -1;           
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: aparecerDesdeAtras 0.6s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  opacity: 0;
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  margin-left: 470px;
+}
+.icon-papel-a{
+  left: 700px;             
+  top: 500px;           
+  animation-delay: 0.1s; 
+  width: 80px;
+  height: 80px;
+}
+.icon-pdf-a{
+  left: 200px;             
+  top: 80px;           
+  animation-delay: 0.1s; 
+  width: 70px;
+  height: 70px;
+}
+.icon-word-a {
+  width: 150px;
+  height: 150px;
+  z-index: -1; 
+  left: 295px;             
+  top: 150px;           
+  animation-delay: 0.1s; 
+  width: 60px;
+  height: 60px; 
+}
+
+
+@keyframes aparecerDesdeAtras {
+  0% {
+    opacity: 0;
+    transform: translateX(0) skewX(-15deg) scale(0.7);
+  }
+  70% {
+    opacity: 1;
+    transform: translateX(-105px) translateY(-15px) skewX(-15deg) scale(1.05);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(-100px) translateY(0) skewX(-15deg) scale(1);
+}
+}
+.fin{
+  top: 590px;
+  font-size: 14px;
+  font-family: inter, Gudea, Molengo, BlinkMacSystemFont, Roboto, sans-serif;
+  color: #807c7c8c;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}

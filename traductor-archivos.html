@@ -1,0 +1,175 @@
+<!DOCTYPE html><!--Es una declaracion, no una etiqueta, indica que el archivo es HTML5 -->
+<html lang="es"><!--Establece el idioma del documento -->
+<head>
+    <meta charset="UTF-8"> <!-- Especifica la codificación de caracteres -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!--Responsiva, ajuste del tamaño de la pantalla -->
+    <title>Indus.com.yo</title>
+    <link rel="stylesheet" href="estilo-archivos.css"> <!-- Enlace a la hoja de estilos CSS -->
+</head>
+
+<body>
+    <header class="barra-superior"> <!--Class es mas reutilizable para darle diseño, mientras que ID se reserva mas para JavaScript y enlaces-->
+    <div class="nav-izquierda"> <!--Usamos div para agrpar elementos -->
+      <a href="javascript:void(0)" class="logo">Indus</a> <!--javascript:void(0) evita que el enlace se siga, se queda en la pagina -->
+      <nav class="enlaces">
+        <a href="index.html" class="btn-nav">Inicio</a>
+        <a href="traductor-texto.html" class="btn-nav-text">Traductor de texto</a>
+        <a href="traductor-archivos.html" class="btn-nav-ar activo">Traductor de archivos</a>
+      </nav>
+    </div>
+    <button class="btn-buscar" aria-label="Buscar">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="11" cy="11" r="8"></circle>
+        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+      </svg>
+    </button>
+    </header>
+ <main class="contenedor-archivos">
+  
+  <div id="seccion-carga" class="seccion-traductor-archivos">
+    
+    
+    <div class="zona-arrastre">
+      <div class="encabezado-zona">
+        <h3 id="txt-encabezado-doc">Documento original</h3>
+        <span class="etiqueta-pdf">PDF</span>
+      </div>
+      
+      
+      <div id="doc-estado-vacio" class="contenido-arrastre">
+        <div class="icono-subir">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M17 8l-5-5-5 5M12 3v12"/>
+          </svg>
+        </div>
+        <p class="texto-principal-arrastre">Arrastra aquí tu archivo PDF</p>
+        <p class="texto-secundario-arrastre">Solo archivos en formato PDF.</p>
+        <button class="btn-seleccionar-file" id="btn-buscar">
+          <span>+</span> Seleccionar PDF
+        </button>
+      </div>
+
+     
+      <div id="doc-estado-cargado" class="contenido-arrastre d-none">
+        <div class="icono-documento-archivo">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+          </svg>
+        </div>
+        <p class="nombre-archivo-subido" id="lbl-nombre-archivo">informe-proyecto.pdf</p>
+        <p class="detalles-archivo-subido" id="lbl-detalles-archivo">2,4 MB • 8 páginas</p>
+        
+       
+        <div class="acciones-archivo" id="grupo-botones-carga">
+          <button class="btn-archivo-accion btn-reemplazar" id="btn-reemplazar">🔄 Reemplazar</button>
+          <button class="btn-archivo-accion btn-quitar" id="btn-quitar">✕ Quitar</button>
+        </div>
+
+        
+        <p class="texto-traduccion-en-curso d-none" id="lbl-estado-curso">🟢 Traducción en curso</p>
+      </div>
+    </div>
+
+    
+    <div class="panel-configuracion-archivos">
+      <h3 class="titulo-config-idiomas">Idiomas de traducción</h3>
+      
+      <div class="barra-idiomas-archivos">
+        <div class="selector-idioma-ar">
+          <span>Inglés</span>
+          <span class="flecha-ar">▼</span>
+        </div>
+        <button class="btn-intercambiar-ar">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M7 16V4M7 4L3 8M7 4L11 8M17 8v12M17 20l4-4M17 20l-4-4"/>
+          </svg>
+        </button>
+        <div class="selector-idioma-ar">
+          <span>Español</span>
+          <span class="flecha-ar">▼</span>
+        </div>
+      </div>
+
+      
+      <div id="lateral-estado-vacio" class="estado-archivo-vacio">
+        <span>Selecciona un PDF para empezar.</span>
+      </div>
+
+      
+      <div id="lateral-estado-listo" class="estado-archivo-listo d-none">
+        <span>✓ Tu archivo está listo para traducir.</span>
+      </div>
+
+      
+      <div id="lateral-estado-progreso" class="estado-archivo-progreso d-none">
+        <p class="nota-informativa-ar">El documento se está traduciendo al español.</p>
+        
+        <div class="encabezado-progreso-barra">
+          <span class="txt-barra-progreso">Traduciendo archivo...</span>
+          <span class="porcentaje-barra" id="num-porcentaje">55 %</span>
+        </div>
+        <div class="contenedor-barra-lineal">
+          <div class="linea-progreso-activa" id="barra-llenado" style="width: 55%;"></div>
+        </div>
+
+       
+        <div class="lista-pasos-traduccion">
+          <div class="paso-item paso-completado">✓ Extracción <span>Completada</span></div>
+          <div class="paso-item paso-activo">⏳ Traducción <span>En curso</span></div>
+          <div class="paso-item paso-pendiente">○ Generación <span>Pendiente</span></div>
+        </div>
+      </div>
+
+      <button class="btn-traducir-archivo" id="btn-enviar-traducir" disabled>
+        ➜ Traducir archivo
+      </button>
+    </div>
+  </div>
+
+  <div id="seccion-visor" class="contenedor-visor-final d-none">
+    <div class="tarjeta-resultado-descarga">
+      <div class="info-resultado-izquierda">
+        <div class="mini-icono-pdf">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+          </svg>
+        </div>
+        <div class="bloque-datos-archivo">
+          <h2 class="nombre-archivo-final">informe-proyecto-es.pdf</h2>
+          <p class="detalles-archivo-final">8 páginas • Inglés ➜ Español • ✓ Traducción completada</p>
+        </div>
+      </div>
+      <button class="btn-descargar-pdf-final">📥 Descargar PDF</button>
+    </div>
+
+    <div class="barra-herramientas-visor">
+      <div class="controles-paginas-visor">
+        <button class="btn-flecha-visor">◀</button>
+        <span>Página 1 de 8</span>
+        <button class="btn-flecha-visor">▶</button>
+      </div>
+      <div class="controles-zoom-visor">
+        <button class="btn-zoom-operacion">−</button>
+        <span class="txt-zoom-porcentaje">100%</span>
+        <button class="btn-zoom-operacion">+</button>
+      </div>
+    </div>
+
+    <div class="lienzo-render-pdf">
+      <div class="hoja-blanca-pdf">
+        <div class="encabezado-hoja-simulada">
+          <strong>INDUS</strong>
+          <span>INFORME - 2026</span>
+        </div>
+        <hr class="linea-separadora-pdf">
+        <h4 class="titulo-hoja-simulada">SEGUIMIENTO DEL PROYECTO</h4>
+        <div class="bloques-falsos-texto-pdf"></div>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+</body>
+</html>
