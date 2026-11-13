@@ -1,0 +1,27 @@
+# Variables de entorno y credenciales
+.env
+.env.local
+.env.*.local
+
+# Entornos virtuales de Python
+.venv/
+venv/
+env/
+ENV/
+
+# Caché de Python y pruebas
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Archivos temporales del backend
+backend/temp_storage/
+temp_storage/
+*.tmp
+
+# Sistema operativo y editores
+.DS_Store
+Thumbs.db
